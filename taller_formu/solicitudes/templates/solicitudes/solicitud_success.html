@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Enviar Solicitud</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Gestión de Solicitudes</h1>
+    <nav>
+      <a href="/">Inicio</a> | <a href="/solicitudes/nueva/">Nueva solicitud</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Formulario de Solicitud</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Enviar solicitud</button>
+    </form>
+  </div>
+</body>
+</html>
